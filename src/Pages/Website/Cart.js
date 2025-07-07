@@ -11,7 +11,7 @@ export default function Cart() {
     window.localStorage.setItem("cart", JSON.stringify(newCart));
     setDeleted((prev) => !prev);
   };
-  const dataShow = cartItems.map((product, key) => (
+  const dataShow = cartItems?.map((product, key) => (
     <div key={key} id={product.id}>
       <div
         style={{ borderBottom: "1px solid gray" }}
