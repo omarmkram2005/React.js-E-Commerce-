@@ -1,0 +1,27 @@
+.spinner-container-supmit {
+  position: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(154, 160, 167, 0.6);
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+.spinner {
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-top: 4px solid white;
+  animation: rotating-spinner 1s linear infinite;
+}
+@keyframes rotating-spinner {
+  form {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

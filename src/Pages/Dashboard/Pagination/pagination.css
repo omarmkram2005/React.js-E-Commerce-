@@ -1,0 +1,46 @@
+.coustom-paginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+.pageLinkClassName {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  background-color: rgba(1, 110, 253, 0.788);
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s;
+}
+.activeLinkClassName {
+  background-color: rgba(7, 80, 177, 0.788);
+}
+.disabledClassName {
+  background-color: rgba(7, 80, 177, 0.788);
+}
+.previousClassName,
+.nextClassName {
+  height: 35px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 15%;
+  background-color: rgba(1, 110, 253, 0.788);
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+.previousLinkClassName,
+.nextLinkClassName {
+  font-weight: bold;
+
+  color: white;
+}
