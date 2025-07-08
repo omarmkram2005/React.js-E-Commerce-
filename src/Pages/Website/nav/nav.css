@@ -67,3 +67,9 @@
 .bg-gray {
   background-color: rgb(249 249 249);
 }
+.new-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

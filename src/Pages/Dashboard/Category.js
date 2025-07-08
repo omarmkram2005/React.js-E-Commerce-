@@ -22,7 +22,7 @@ export default function Category() {
       })
       .catch((err) => {
         nav("/dashboard/category/page/404", { replace: true });
-        console.log("its an err");
+        console.log(err);
       });
   }, []);
   async function HandelSubmit(e) {

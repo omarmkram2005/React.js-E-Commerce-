@@ -18,7 +18,6 @@ export default function Categories() {
         setCat(res.data.data);
 
         setLoading(false);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);

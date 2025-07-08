@@ -8,10 +8,9 @@ import "./Css/componants/alerts.css";
 import "./Css/componants/loading.css";
 import "./Pages/Auth/Auth.css";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import "./Css/productsDeals.css";
 import MenuContext from "./Context/MenuContext";
 import WindowContext from "./Context/WindowContext";
-// import UserProvider from "./Context/UserContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

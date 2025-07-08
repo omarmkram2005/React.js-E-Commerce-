@@ -15,39 +15,46 @@ export default function DealProductsShow() {
       setLoading(false);
     });
   }, []);
-  // console.log(products);
-  const productShow = products.map((pro, key) => (
-    <div key={key}>
-      <DealProducts
-        title={pro.title}
-        img={pro.images[0].image}
-        price={pro.price}
-        discount={pro.discount}
-        rate={pro.rating}
-        id={pro.id}
-      />
-    </div>
-  ));
+  const productShow = products.map(
+    (pro, key) =>
+      key < 4 && (
+        <DealProducts
+          title={pro.title}
+          img={pro.images[0].image}
+          price={pro.price}
+          discount={pro.discount}
+          rate={pro.rating}
+          id={pro.id}
+        />
+      )
+  );
   return (
-    <Container className="d-flex  justify-content-center flex-wrap my-5">
-      {loading ? (
-        <>
-          <div className="mx-2">
-            <Skeleton height="500px" width="300px" />
-          </div>{" "}
-          <div className="mx-2">
-            <Skeleton height="500px" width="300px" />
-          </div>{" "}
-          <div className="mx-2">
-            <Skeleton height="500px" width="300px" />
-          </div>{" "}
-          <div className="mx-2">
-            <Skeleton height="500px" width="300px" />
-          </div>{" "}
-        </>
-      ) : (
-        productShow
-      )}
-    </Container>
+    <>
+      <h1
+        style={{ marginLeft: "18px", marginTop: "25px" }}
+        className="text-center">
+        Top Sail Products
+      </h1>
+      <Container className="d-flex gap-2 justify-content-center flex-wrap my-5">
+        {loading ? (
+          <Container className="d-flex gap-2  justify-content-center flex-wrap my-5">
+            <div>
+              <Skeleton height="500px" width="300px" />
+            </div>{" "}
+            <div>
+              <Skeleton height="500px" width="300px" />
+            </div>{" "}
+            <div>
+              <Skeleton height="500px" width="300px" />
+            </div>{" "}
+            <div>
+              <Skeleton height="500px" width="300px" />
+            </div>{" "}
+          </Container>
+        ) : (
+          productShow
+        )}
+      </Container>
+    </>
   );
 }

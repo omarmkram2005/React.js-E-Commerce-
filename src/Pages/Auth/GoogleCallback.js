@@ -13,7 +13,6 @@ export default function GoogleCallback() {
         const res = await axios.get(
           `${baseURL}/${GOOGLE_CALLBACK}${location.search}`
         );
-        console.log(res);
         const token = res.data.access_token;
         cookie.set("e-commerce", token);
       } catch (err) {

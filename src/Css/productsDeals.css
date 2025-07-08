@@ -2,19 +2,20 @@
   border: 1px solid rgb(128, 126, 126);
   border-radius: 12px;
   width: 305px;
-  height: 525px;
+  height: 450px;
   overflow: hidden;
   padding: 0 0 12px;
   position: relative;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
+  display: block;
 }
 .product-img img {
   width: 100%;
   border-bottom: 1px solid rgb(128, 126, 126);
   height: 300px;
 }
-.card-bordy {
-  padding: 0 15px;
+.card-body {
+  padding: 10px 15px !important;
 }
 .rate {
   margin-bottom: 15px;
@@ -25,22 +26,6 @@
   color: rgb(172, 167, 167);
 }
 
-.add-to-cart button {
-  outline: none;
-  border: none;
-  background-color: #4063fc;
-  color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 15px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-top: 25px;
-  transition: 0.3s;
-}
-.add-to-cart button:hover {
-  background-color: #5b74e7;
-}
 .sail {
   position: absolute;
   background-color: #4063fc;
@@ -51,5 +36,8 @@
   transform: translate(-27px, -37px);
 }
 .title {
-  font-size: 35px;
+  font-size: 25px;
+}
+body {
+  background-color: #000;
 }

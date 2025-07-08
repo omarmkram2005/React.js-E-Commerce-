@@ -13,6 +13,7 @@ export default function DealProducts(props) {
         strokeMiterlimit={2}
         viewBox="0 0 24 24"
         width={20}
+        fill="#ffb514"
         height={20}
         xmlns="http://www.w3.org/2000/svg">
         <path
@@ -35,30 +36,24 @@ export default function DealProducts(props) {
   );
 
   return (
-    <NavLink to={`/product/${props.id}`}>
-      <div className="Product-card">
-        <div className="product-img">
-          {props.discount && <span className="sail">SALE</span>}
-          <img src={props.img} alt="" />
-        </div>
-        <div className="card-bordy">
-          <h1 className="title text-truncate">{props.title}</h1>
-          <div className="rate">{rateShow}</div>
-          <div className="price">
-            <span style={{ fontSize: "22px" }}>
-              {props.discount}
-              <span>$</span>
-            </span>
+    <NavLink className="Product-card" to={`/product/${props.id}`}>
+      <div className="product-img">
+        {props.discount && <span className="sail">SALE</span>}
+        <img src={props.img} alt="" />
+      </div>
+      <div className="card-body">
+        <h1 className="title text-truncate">{props.title}</h1>
+        <div className="rate">{rateShow}</div>
+        <div className="price">
+          <span style={{ fontSize: "22px", fontWeight: "bold" }}>
+            {props.discount}
+            <span>$</span>
+          </span>
 
-            <span className="discount  ">
-              {props.price}
-              <span>$</span>
-            </span>
-          </div>
-        </div>
-
-        <div className="add-to-cart">
-          <button>Add To Cart</button>
+          <span className="discount  ">
+            {props.price}
+            <span>$</span>
+          </span>
         </div>
       </div>
     </NavLink>

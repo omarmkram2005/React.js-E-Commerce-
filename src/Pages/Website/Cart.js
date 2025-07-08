@@ -5,7 +5,6 @@ export default function Cart() {
   const cartItems = JSON.parse(window.localStorage.getItem("cart"));
   const { isOpen, setIsOpen } = useContext(openCart);
   const [deleted, setDeleted] = useState(false);
-  console.log(isOpen);
   const handleDelete = (id) => {
     const newCart = cartItems.filter((item) => item.id !== id);
     window.localStorage.setItem("cart", JSON.stringify(newCart));

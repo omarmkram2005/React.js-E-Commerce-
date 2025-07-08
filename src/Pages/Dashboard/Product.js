@@ -62,7 +62,6 @@ export default function Product() {
         const res = await Axios.delete(
           `product-img/${deleteImagesFromServer[i]}`
         );
-        console.log(res);
       } catch (err) {
         console.log(err);
       }

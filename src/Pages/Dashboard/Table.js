@@ -31,7 +31,6 @@ export default function TapleShow(props) {
   const headerShow = props.header.map((item, key) => (
     <th key={key}>{item.name}</th>
   ));
-  console.log(props.data);
   async function getSearchedData() {
     try {
       const res = await Axios.post(

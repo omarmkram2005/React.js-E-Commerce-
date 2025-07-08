@@ -25,7 +25,7 @@ export default function User() {
       })
       .catch((err) => {
         nav("/dashboard/users/page/404", { replace: true });
-        console.log("its an err");
+        console.log(err);
       });
   }, []);
   async function HandelSubmit(e) {
