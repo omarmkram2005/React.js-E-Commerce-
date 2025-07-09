@@ -17,14 +17,16 @@ export default function DealProductsShow() {
   }, []);
   const productShow = products.map(
     (pro, key) =>
-      key < 4 && (
+      key < 3 && (
         <DealProducts
+          data={pro}
           title={pro.title}
           img={pro.images[0].image}
           price={pro.price}
           discount={pro.discount}
           rate={pro.rating}
           id={pro.id}
+          key={key}
         />
       )
   );
@@ -33,14 +35,11 @@ export default function DealProductsShow() {
       <h1
         style={{ marginLeft: "18px", marginTop: "25px" }}
         className="text-center">
-        Top Sail Products
+        Top Sale Products
       </h1>
       <Container className="d-flex gap-2 justify-content-center flex-wrap my-5">
         {loading ? (
           <Container className="d-flex gap-2  justify-content-center flex-wrap my-5">
-            <div>
-              <Skeleton height="500px" width="300px" />
-            </div>{" "}
             <div>
               <Skeleton height="500px" width="300px" />
             </div>{" "}

@@ -1,7 +1,7 @@
 .nav,
 .things-container {
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: #1f2126;
   padding: 5px 15px;
   display: flex;
   justify-content: space-between;
@@ -9,6 +9,10 @@
 }
 .nav {
   box-shadow: 0px -2px 8px 1px;
+}
+.logo {
+  color: #f7f9fd;
+  font-size: 30px;
 }
 .search-nav {
   width: 350px !important;
@@ -30,7 +34,9 @@
 }
 .cat-card {
   border: 1px solid rgb(70, 68, 68);
-  border-radius: 12px;
+  box-shadow: 0 0 9px 2px #dbe0f0;
+
+  border-radius: 5px;
   max-width: 200px;
   overflow: hidden;
   max-height: 200px;
@@ -58,12 +64,7 @@
   border: 1px solid black;
   width: fit-content;
 }
-.image-gallery-slide-wrapper {
-  height: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .bg-gray {
   background-color: rgb(249 249 249);
 }

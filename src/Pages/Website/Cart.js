@@ -21,8 +21,11 @@ export default function Cart() {
         </div>
         <div className="col-7 d-flex align-items-start">
           <div className="ms-5">
-            <h1 style={{ fontSize: "25px" }}>{product.title}</h1>
-            {/* <h3 style={{ fontSize: "15px", color: "gray" }}>{product.About}</h3> */}
+            <h1
+              className=" text-truncate"
+              style={{ fontSize: "25px", width: "200px" }}>
+              {product.title}
+            </h1>
             <p style={{ fontSize: "15px", marginBottom: "5px" }}>
               {product.description}
             </p>
@@ -78,23 +81,6 @@ export default function Cart() {
       </div>
     </div>
   ));
-  // <div
-  //   style={{
-  //     position: "absolute",
-  //     top: "50%",
-  //     left: "50%",
-  //     backgroundColor: "#f4f4f4",
-  //     width: "400px",
-  //     height: "fit-content",
-  //     transform: "translate(-50%,-50%)",
-  //     padding: "10px 15px",
-  //     borderRadius: "5px",
-  //     zIndex: "6",
-  //     boxShadow: "black 0 0 5px 0px",
-  //   }}>
-  //   {dataShow}
-  // </div>
-
   return (
     <Modal
       size="lg"

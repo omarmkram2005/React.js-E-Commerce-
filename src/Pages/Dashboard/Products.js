@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import LoadingSupmit from "../../Components/Loading/Loading";
 import TapleShow from "./Table";
 export default function Products() {
-  const limite = 3;
+  const limite = 5;
   const [page, setPage] = useState(1);
 
   const [pro, setPro] = useState([]);
@@ -31,7 +31,7 @@ export default function Products() {
       key: "price",
       name: "Price",
     },
-    { key: "rate", name: "Rate" },
+    { key: "rating", name: "Rate" },
     { key: "images", name: "Images" },
     {
       key: "created_at",

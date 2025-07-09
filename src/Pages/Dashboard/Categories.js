@@ -10,7 +10,7 @@ export default function Categories() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
-  const limite = 3;
+  const limite = 5;
   useEffect(() => {
     Axios.get(`/${CAT}?limit=${limite}&page=${page}`)
       .then((res) => {

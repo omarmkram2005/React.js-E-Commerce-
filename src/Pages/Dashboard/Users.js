@@ -11,7 +11,7 @@ export default function Users() {
   const [currentUser, setCurrentUser] = useState("");
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
-  const limite = 3;
+  const limite = 5;
 
   useEffect(() => {
     Axios.get(`${USER}`).then((res) => setCurrentUser(res.data));

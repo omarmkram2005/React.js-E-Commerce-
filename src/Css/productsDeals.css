@@ -1,6 +1,6 @@
 .Product-card {
-  border: 1px solid rgb(128, 126, 126);
-  border-radius: 12px;
+  border: 1px solid rgb(200 200 200);
+  border-radius: 4px;
   width: 305px;
   height: 450px;
   overflow: hidden;
@@ -8,11 +8,13 @@
   position: relative;
   margin: 0.5rem 0;
   display: block;
+  box-shadow: 0 0 9px 2px #dbe0f0;
 }
 .product-img img {
   width: 100%;
-  border-bottom: 1px solid rgb(128, 126, 126);
+  border-bottom: 1px solid rgb(200 200 200);
   height: 300px;
+  box-shadow: 0 0 9px 2px #dbe0f0;
 }
 .card-body {
   padding: 10px 15px !important;
@@ -30,13 +32,14 @@
   position: absolute;
   background-color: #4063fc;
   font-weight: bold;
-  padding: 20px 50px;
+  padding: 10px 105px 10px;
   color: white;
   rotate: -45deg;
-  transform: translate(-27px, -37px);
+  transform: translate(-69px, -40px);
 }
 .title {
   font-size: 25px;
+  color: rgb(44, 44, 44);
 }
 body {
   background-color: #000;

@@ -13,6 +13,8 @@ export default function Product() {
     price: "",
     discount: "",
     About: "",
+    stock: "",
+    rating: "",
   });
   const nav = useNavigate();
   const [images, setImages] = useState([]);
@@ -59,9 +61,7 @@ export default function Product() {
 
     for (let i = 0; i < deleteImagesFromServer.length; i++) {
       try {
-        const res = await Axios.delete(
-          `product-img/${deleteImagesFromServer[i]}`
-        );
+        await Axios.delete(`product-img/${deleteImagesFromServer[i]}`);
       } catch (err) {
         console.log(err);
       }
@@ -229,9 +229,9 @@ export default function Product() {
           <Form.Label>Price</Form.Label>
           <Form.Control
             name="price"
-            value={form.price}
+            value={form.price > 0 ? form.price : 0}
             onChange={handleChange}
-            type="numper"
+            type="number"
             placeholder="Price..."
           />
         </Form.Group>
@@ -239,9 +239,9 @@ export default function Product() {
           <Form.Label>Discount</Form.Label>
           <Form.Control
             name="discount"
-            value={form.discount}
+            value={form.discount > 0 ? form.discount : 0}
             onChange={handleChange}
-            type="numper"
+            type="number"
             placeholder="Discount..."
           />
         </Form.Group>
@@ -253,6 +253,26 @@ export default function Product() {
             onChange={handleChange}
             type="text"
             placeholder="About..."
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicStock">
+          <Form.Label>Stock</Form.Label>
+          <Form.Control
+            name="stock"
+            value={form.stock > 0 ? form.stock : 0}
+            onChange={handleChange}
+            type="number"
+            placeholder="Stock..."
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicStock">
+          <Form.Label>Rate</Form.Label>
+          <Form.Control
+            name="rating"
+            value={form.rating > 0 ? form.rating : 0}
+            onChange={handleChange}
+            type="number"
+            placeholder="Rate..."
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicimages">

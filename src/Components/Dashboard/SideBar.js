@@ -38,6 +38,7 @@ export default function SideBar() {
         className="side-bar pt-3 "
         style={{
           width: isOpen ? "220px" : "fit-content",
+          height: "117vh",
           left: windowSize.windowSize < "768" ? (isOpen ? "0" : "-100%") : "0",
           position: windowSize.windowSize < "768" ? "fixed" : "sticky",
         }}>

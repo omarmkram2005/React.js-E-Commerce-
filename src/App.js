@@ -21,6 +21,7 @@ import Product from "./Pages/Dashboard/Product";
 import ShowAllCats from "./Pages/Website/ShowAllCats";
 import Website from "./Pages/Website/Website";
 import ProductPage from "./Components/ProductPage";
+import Store from "./Pages/Website/Store";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
       <Routes>
         <Route element={<Website />}>
           <Route path="" element={<HomePage />}></Route>
+          <Route path="/store" element={<Store />}></Route>
           <Route path="/product/:id" element={<ProductPage />}></Route>
           <Route path="/categories" element={<ShowAllCats />}></Route>
         </Route>

@@ -101,15 +101,20 @@ export default function ProductPage() {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }
+  useEffect(() => {
+    setTimeout(() => {
+      setError(0);
+    }, 2000);
+  }, [error]);
   return (
     <>
-      <Container className="mt-5">
+      <Container style={{ marginTop: "140px" }}>
         {loading ? (
           <>
-            <div className="d-flex align-items-start justify-content-between flex-wrap">
+            <div className="d-flex row-gap-2 align-items-start justify-content-between flex-wrap">
               <div
                 style={{ width: "390px" }}
-                className="col-lg-5 col-md-6 col-12 bg-gray">
+                className="col-lg-5 col-md-5 col-12 bg-gray">
                 <Skeleton height="370px" width="390px" />
                 <div
                   style={{ width: "390px" }}
@@ -120,14 +125,15 @@ export default function ProductPage() {
                   <Skeleton height="90px" width="90px" />
                 </div>
               </div>
+              <div className="col-lg-1 col-md-1 col-12"></div>
               <div className="col-lg-6 col-md-6 col-12 d-flex align-items-start ">
-                <div className="ms-5 d-flex gap-3 flex-wrap">
+                <div className=" d-flex flex-wrap">
                   <Skeleton height="50px" width="300px" />
                   <Skeleton height="40px" width="250px" />
 
                   <Skeleton height="50px" width="300px" />
 
-                  <Skeleton height="25px" width="200px" className=" me-5" />
+                  <Skeleton height="25px" width="200px" className=" me-3" />
                   <br />
                   <Skeleton height="25px" width="150px" />
                 </div>
@@ -135,12 +141,15 @@ export default function ProductPage() {
             </div>
           </>
         ) : (
-          <div className="d-flex align-items-start justify-content-between flex-wrap">
-            <div className="col-lg-5 col-md-6 col-12 bg-gray">
-              {<ImageGallery additionalClass="" items={images} />}
+          <div className="d-flex row-gap-2 align-items-start justify-content-between flex-wrap">
+            <div
+              style={{ maxHeighteight: "540px" }}
+              className="col-lg-5 col-md-6 col-12 bg-gray">
+              {<ImageGallery items={images} />}
             </div>
-            <div className="col-lg-6 col-md-6 col-12 d-flex align-items-start">
-              <div className="ms-5">
+            <div className="col-lg-1 col-md-1 col-12"></div>
+            <div className="col-lg-6 col-md-5 col-12 d-flex align-items-start">
+              <div>
                 <h1 style={{ fontSize: "35px" }}>{product.title}</h1>
                 <h3 style={{ fontSize: "15px", color: "gray" }}>
                   {product.About}
@@ -166,12 +175,20 @@ export default function ProductPage() {
                 {error === 0 ? (
                   ""
                 ) : error === 2 ? (
-                  <Alert variant="danger">
+                  <Alert
+                    className="  position-absolute"
+                    style={{ top: "110px", right: "10px" }}
+                    variant="danger">
                     Sorry, this quantity is not available.
                   </Alert>
                 ) : (
                   error === 1 && (
-                    <Alert variant="success">product added sucsessfuly</Alert>
+                    <Alert
+                      className="  position-absolute"
+                      style={{ top: "110px", right: "10px" }}
+                      variant="success">
+                      Added successfully!
+                    </Alert>
                   )
                 )}
                 <div className="d-flex align-items-center justify-content-between">
@@ -193,7 +210,6 @@ export default function ProductPage() {
                     <input
                       style={{ width: "100px", margin: "0 10px" }}
                       type="number"
-                      defaultValue="1"
                       height={50}
                       className="text-center "
                       disabled

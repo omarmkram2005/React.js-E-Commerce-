@@ -1,7 +1,13 @@
 import ReactPaginate from "react-paginate";
 import "./pagination.css";
 
-export default function PaginatedItems({ itemsPerPage, total, setpage }) {
+export default function PaginatedItems({
+  itemsPerPage,
+  total,
+  setpage,
+  moved,
+}) {
+  const scroll = moved ? window.scrollTo(0, 0) : "";
   const pageCount = total / itemsPerPage;
   return (
     <>

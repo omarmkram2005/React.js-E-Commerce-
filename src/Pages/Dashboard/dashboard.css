@@ -45,3 +45,8 @@
   background-color: hsl(205, 96%, 42%);
   cursor: pointer;
 }
+
+.white-btn {
+  background-color: rgb(229, 237, 255) !important;
+  color: #172b38 !important;
+}

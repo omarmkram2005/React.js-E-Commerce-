@@ -69,6 +69,8 @@ export default function TapleShow(props) {
             item[item2.key] + " (You)"
           ) : item2.key === "image" ? (
             <img style={{ width: "200px" }} alt="err" src={item[item2.key]} />
+          ) : item2.key === "rating" ? (
+            <div>{item[item2.key]}</div>
           ) : item2.key === "images" ? (
             <div className="image-flex-container">
               {item[item2.key].map((image, key) => (

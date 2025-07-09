@@ -13,6 +13,8 @@ export default function AddProduct() {
     price: "",
     discount: "",
     About: "",
+    stock: "",
+    rating: "",
   });
 
   const dummyForm = {
@@ -22,6 +24,8 @@ export default function AddProduct() {
     price: 22,
     discount: 0,
     About: "dummy",
+    stock: 5,
+    rating: 2,
   };
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -111,7 +115,7 @@ export default function AddProduct() {
     const findId = ids.current[id];
 
     try {
-      const res = await Axios.delete(`product-img/${findId}`);
+      await Axios.delete(`product-img/${findId}`);
       setImages((prev) => prev.filter((image) => image !== img));
       ids.current = ids.current.filter((deleId) => deleId !== findId);
       j.current--;
@@ -203,9 +207,9 @@ export default function AddProduct() {
           <Form.Label>Price</Form.Label>
           <Form.Control
             name="price"
-            value={form.price}
+            value={form.price > 0 ? form.price : 0}
             onChange={handleChange}
-            type="numper"
+            type="number"
             disabled={!sent}
             placeholder="Price..."
           />
@@ -214,9 +218,9 @@ export default function AddProduct() {
           <Form.Label>Discount</Form.Label>
           <Form.Control
             name="discount"
-            value={form.discount}
+            value={form.discount > 0 ? form.discount : 0}
             onChange={handleChange}
-            type="numper"
+            type="number"
             disabled={!sent}
             placeholder="Discount..."
           />
@@ -230,6 +234,28 @@ export default function AddProduct() {
             type="text"
             disabled={!sent}
             placeholder="About..."
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicStock">
+          <Form.Label>Stock</Form.Label>
+          <Form.Control
+            name="stock"
+            value={form.stock > 0 ? form.stock : 0}
+            onChange={handleChange}
+            type="number"
+            disabled={!sent}
+            placeholder="Stock..."
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicStock">
+          <Form.Label>Rate</Form.Label>
+          <Form.Control
+            name="rating"
+            value={form.rating > 0 ? form.rating : 0}
+            onChange={handleChange}
+            type="number"
+            disabled={!sent}
+            placeholder="Rate..."
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicimages">

@@ -1,5 +1,22 @@
+import { useEffect, useState } from "react";
+import { Alert, Spinner } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { CART, Pro } from "../../Api/Api";
+import { Axios } from "../../Api/axios";
 export default function DealProducts(props) {
+  const [loadingCart, setloadingCart] = useState(false);
+  const [product, setProduct] = useState([]);
+  const [error, setError] = useState(0);
+  const id = props.id;
+  useEffect(() => {
+    setProduct(props.data);
+    console.log(props.data);
+  }, [props.page]);
+  useEffect(() => {
+    setTimeout(() => {
+      setError(0);
+    }, 2000);
+  }, [error]);
   const roundRate = Math.round(props.rate);
 
   let dumpArray = [0, 0, 0, 0, 0];
@@ -34,28 +51,119 @@ export default function DealProducts(props) {
       </svg>
     )
   );
+  const checkstock = async () => {
+    console.log("its check function");
+    try {
+      setloadingCart(true);
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const productInCart = cart.filter((item) => item.id === product.id)[0]
+        ?.count;
+      await Axios.post(`${CART}/check`, {
+        product_id: id,
+        count: 1 + (productInCart || 0),
+      });
+      console.log("its check function sucsess");
+      setError(1);
+      return true;
+    } catch (err) {
+      console.log(err);
+      setError(2);
+      return false;
+    } finally {
+      setloadingCart(false);
+    }
+  };
+  async function addToCart() {
+    const check = await checkstock();
+    if (check) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const productInCart = cart.find((item) => item.id === product.id);
 
+      if (productInCart) {
+        productInCart.count = (productInCart.count || 0) + 1;
+      } else {
+        cart.push({ ...product, count: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }
   return (
-    <NavLink className="Product-card" to={`/product/${props.id}`}>
-      <div className="product-img">
+    <div className="Product-card ">
+      <NavLink to={`/product/${props.id}`} className="product-img">
         {props.discount && <span className="sail">SALE</span>}
-        <img src={props.img} alt="" />
-      </div>
+        <img loading="lazy" src={props.img} alt="" />
+      </NavLink>
       <div className="card-body">
-        <h1 className="title text-truncate">{props.title}</h1>
+        <h1 className="title text-truncate">
+          {(
+            <NavLink
+              className="title text-truncate"
+              to={`/product/${props.id}`}>
+              {props.title}
+            </NavLink>
+          ) || props.title}
+        </h1>
         <div className="rate">{rateShow}</div>
-        <div className="price">
-          <span style={{ fontSize: "22px", fontWeight: "bold" }}>
-            {props.discount}
-            <span>$</span>
-          </span>
+        <div className="price d-flex justify-content-between align-items-center">
+          <NavLink to={`/product/${props.id}`}>
+            <span style={{ fontSize: "22px", fontWeight: "bold" }}>
+              {props.discount}
+              <span>$</span>
+            </span>
 
-          <span className="discount  ">
-            {props.price}
-            <span>$</span>
-          </span>
+            <span className="discount  ">
+              {props.price}
+              <span>$</span>
+            </span>
+          </NavLink>
+          {error === 0 ? (
+            ""
+          ) : error === 2 ? (
+            <Alert
+              style={{
+                position: "fixed",
+                top: "110px",
+                right: "10px",
+                width: "fit-content",
+              }}
+              variant="danger">
+              Sorry, this quantity is not available.
+            </Alert>
+          ) : (
+            error === 1 && (
+              <Alert
+                style={{
+                  position: "fixed",
+                  top: "110px",
+                  right: "10px",
+                  width: "fit-content",
+                }}
+                variant="success">
+                Added successfully!
+              </Alert>
+            )
+          )}
+          <div className="add-to-cart" onClick={() => addToCart()}>
+            {loadingCart ? (
+              <Spinner
+                animation="border"
+                style={{ width: "25px", height: "25px" }}
+              />
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={30}
+                height={30}
+                fill="#5d5d5d"
+                viewBox="0 0 576 512">
+                {/*!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.*/}
+                <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20l44 0 0 44c0 11 9 20 20 20s20-9 20-20l0-44 44 0c11 0 20-9 20-20s-9-20-20-20l-44 0 0-44c0-11-9-20-20-20s-20 9-20 20l0 44-44 0c-11 0-20 9-20 20z" />
+              </svg>
+            )}
+          </div>
         </div>
       </div>
-    </NavLink>
+    </div>
   );
 }

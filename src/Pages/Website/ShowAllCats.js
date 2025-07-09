@@ -12,14 +12,14 @@ export default function ShowAllCats() {
       <div className="img overflow-hidden">
         <img className="z-1" src={cat.image} alt="" />
       </div>
-      <p className="m-0 p-1  text-center border-top bg-white z-0">
+      <p className="m-0 p-1  text-center text-truncate border-top bg-white z-0">
         {cat.title}
       </p>
     </div>
   ));
   return (
     <>
-      <Container className="mt-3">
+      <Container style={{ marginTop: "140px" }}>
         <div className="d-flex flex-wrap gap-2">{catsShow}</div>
       </Container>
     </>
