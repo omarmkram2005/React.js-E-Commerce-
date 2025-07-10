@@ -5,6 +5,7 @@ import LoadingSupmit from "../../Components/Loading/Loading";
 import Cookie from "cookie-universal";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../Website/nav/NavBar";
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -52,6 +53,7 @@ export default function Login() {
   }
   return (
     <>
+      <NavBar />
       {loading && <LoadingSupmit />}
       <div className="container">
         <div className="row" style={{ height: "100vh" }}>

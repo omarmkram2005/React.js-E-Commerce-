@@ -4,6 +4,7 @@ import { baseURL, REGISTER } from "../../Api/Api";
 import LoadingSupmit from "../../Components/Loading/Loading";
 import Cookie from "cookie-universal";
 import { Form } from "react-bootstrap";
+import NavBar from "../Website/nav/NavBar";
 export default function Register() {
   const [form, setForm] = useState({
     name: "",
@@ -48,7 +49,7 @@ export default function Register() {
   return (
     <>
       {loading && <LoadingSupmit />}
-
+      <NavBar />
       <div className="container">
         <div className="row" style={{ height: "100vh" }}>
           <Form onSubmit={handelSupmit} className="form">
