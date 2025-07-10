@@ -15,7 +15,7 @@ export default function DealProductsShow() {
       setLoading(false);
     });
   }, []);
-  const productShow = products.map(
+  const productShow = products?.map(
     (pro, key) =>
       key < 3 && (
         <DealProducts

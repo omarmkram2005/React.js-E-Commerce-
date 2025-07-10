@@ -7,7 +7,7 @@ export default function ShowAllCats() {
   useEffect(() => {
     Axios.get(`/${CAT}`).then((res) => setCat(res.data));
   }, []);
-  const catsShow = cat.map((cat, key) => (
+  const catsShow = cat?.map((cat, key) => (
     <div key={key} className="cat-card ">
       <div className="img overflow-hidden">
         <img className="z-1" src={cat.image} alt="" />

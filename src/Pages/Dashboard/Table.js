@@ -28,7 +28,7 @@ export default function TapleShow(props) {
       : search.length > 0
       ? filteredData
       : props.data;
-  const headerShow = props.header.map((item, key) => (
+  const headerShow = props.header?.map((item, key) => (
     <th key={key}>{item.name}</th>
   ));
   async function getSearchedData() {
@@ -50,10 +50,10 @@ export default function TapleShow(props) {
 
     return () => clearTimeout(delay);
   }, [search]);
-  const dataShow = showWichData.map((item, key) => (
+  const dataShow = showWichData?.map((item, key) => (
     <tr key={key}>
       <td>{item.id}</td>
-      {props.header.map((item2, key2) => (
+      {props.header?.map((item2, key2) => (
         <td
           key={key2}
           className={item2.key === "image" ? "image-gallery-cell" : ""}>
@@ -73,7 +73,7 @@ export default function TapleShow(props) {
             <div>{item[item2.key]}</div>
           ) : item2.key === "images" ? (
             <div className="image-flex-container">
-              {item[item2.key].map((image, key) => (
+              {item[item2.key]?.map((image, key) => (
                 <img
                   // style={{ maxWidth: "140px", minWidth: "45px" }}
                   key={key}

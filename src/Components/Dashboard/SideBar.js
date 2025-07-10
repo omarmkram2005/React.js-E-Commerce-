@@ -42,7 +42,7 @@ export default function SideBar() {
           left: windowSize.windowSize < "768" ? (isOpen ? "0" : "-100%") : "0",
           position: windowSize.windowSize < "768" ? "fixed" : "sticky",
         }}>
-        {links.map(
+        {links?.map(
           (link, key) =>
             link.role.includes(user.role) && (
               <NavLink

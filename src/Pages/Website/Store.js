@@ -32,7 +32,7 @@ export default function Store() {
   useEffect(() => {
     setMoved((prev) => !prev);
   }, [page]);
-  const dataShow = pro.map((item, key) => {
+  const dataShow = pro?.map((item, key) => {
     console.log(item.id);
     return (
       <DealProducts

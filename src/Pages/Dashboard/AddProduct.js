@@ -123,13 +123,13 @@ export default function AddProduct() {
       console.log(err);
     }
   }
-  const catShow = cat.map((item, key) => (
+  const catShow = cat?.map((item, key) => (
     <option key={key} value={item.id}>
       {item.title}
     </option>
   ));
 
-  const imagesShow = images.map((image, key) => (
+  const imagesShow = images?.map((image, key) => (
     <div key={key} className=" w-100 p-2 border">
       <div className="d-flex justify-content-between align-items-center w-100">
         <div className="  d-flex justify-content-start align-items-center gap-2 ">

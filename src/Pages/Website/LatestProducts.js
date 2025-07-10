@@ -15,8 +15,8 @@ export default function LatestProducts() {
     });
   }, []);
   const dataShow = data
-    .slice(0, 3)
-    .map((pro, key) => (
+    ?.slice(0, 3)
+    ?.map((pro, key) => (
       <DealProducts
         data={pro}
         title={pro.title}

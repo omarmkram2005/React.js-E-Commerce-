@@ -44,7 +44,7 @@ export default function ProductPage() {
       setloadingCart(false);
     }
   };
-  const images = productImages.map((image, key) => {
+  const images = productImages?.map((image, key) => {
     return {
       original: image.image,
       thumbnail: image.image,
