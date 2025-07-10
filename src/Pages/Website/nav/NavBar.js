@@ -73,7 +73,7 @@ export default function NavBar() {
         </div>
       </Container>
       <div className="cats-nav w-100 d-flex justify-content-center align-items-center gap-2">
-        {loading ? (
+        {/* {loading ? (
           <>
             <Skeleton width={75} height={25} />
             <Skeleton width={75} height={25} />
@@ -96,7 +96,7 @@ export default function NavBar() {
               {cat.title}
             </NavLink>
           ))
-        )}
+        )} */}
         <Link
           to="/categories"
           style={{
