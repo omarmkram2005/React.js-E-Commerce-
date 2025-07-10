@@ -82,7 +82,7 @@ export default function NavBar() {
             <Skeleton width={75} height={25} />
           </>
         ) : (
-          catsToShow.map((cat, key) => (
+          catsToShow?.map((cat, key) => (
             <NavLink
               className="text-decoration-none text-truncate"
               style={{
