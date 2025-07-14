@@ -90,7 +90,7 @@ export default function Login() {
             </div>
             <a
               style={{ width: "100px", display: "block" }}
-              href="http://127.0.0.1:8000/login-google">
+              href="https://e-commerce-backend-production-e309.up.railway.app/login-google">
               <div className="mt-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
