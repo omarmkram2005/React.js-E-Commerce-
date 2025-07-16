@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Axios } from "../../Api/axios";
 import { CAT, Pro } from "../../Api/Api";
 import LoadingSupmit from "../../Components/Loading/Loading";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function AddProduct() {
   const [form, setForm] = useState({
@@ -30,6 +30,7 @@ export default function AddProduct() {
   const [cat, setCat] = useState([]);
   const [sent, setSent] = useState(false);
   const [id, setId] = useState("");
+  const nav = useNavigate();
   const focus = useRef(null);
   const openImage = useRef(null);
   const progress = useRef([]);
@@ -37,11 +38,7 @@ export default function AddProduct() {
   useEffect(() => {
     focus.current.focus();
   }, []);
-  function navigateTimeOut() {
-    setTimeout(() => {
-      <NavLink to="/dashboard/users" />;
-    }, 3000);
-  }
+
   function handleOpenImage() {
     openImage.current.click();
   }
@@ -61,8 +58,8 @@ export default function AddProduct() {
     for (let i = 0; i < images.length; i++) {}
     try {
       Axios.post(`${Pro}/edit/${id}`, form);
+      nav("/dashboard/products");
       setLoading(true);
-      navigateTimeOut();
     } catch (err) {
       console.log(err);
     }

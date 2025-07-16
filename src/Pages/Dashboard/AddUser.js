@@ -3,7 +3,6 @@ import { Form } from "react-bootstrap";
 import { Axios } from "../../Api/axios";
 import { USER } from "../../Api/Api";
 import LoadingSupmit from "../../Components/Loading/Loading";
-import { NavLink } from "react-router-dom";
 
 export default function User() {
   const [name, setName] = useState("");
@@ -16,11 +15,7 @@ export default function User() {
   useEffect(() => {
     focus.current.focus();
   }, []);
-  function navigateTimeOut() {
-    setTimeout(() => {
-      <NavLink to="/dashboard/users" />;
-    }, 3000);
-  }
+
   async function HandelSubmit(e) {
     e.preventDefault();
     try {
@@ -30,9 +25,8 @@ export default function User() {
         password: password,
         role: role,
       });
-
+      window.location.pathname = "/dashboard/users";
       setLoading(true);
-      navigateTimeOut();
     } catch (err) {
       console.log(err);
     }

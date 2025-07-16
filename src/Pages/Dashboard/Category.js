@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Axios } from "../../Api/axios";
-import { CAT, Cat } from "../../Api/Api";
+import { Cat } from "../../Api/Api";
 import LoadingSupmit from "../../Components/Loading/Loading";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Category() {
   const [title, setTitle] = useState("");
