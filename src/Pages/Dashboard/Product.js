@@ -14,7 +14,6 @@ export default function Product() {
     discount: "",
     About: "",
     stock: "",
-    rating: "",
   });
   const nav = useNavigate();
   const [images, setImages] = useState([]);
@@ -270,16 +269,6 @@ export default function Product() {
             onChange={handleChange}
             type="number"
             placeholder="Stock..."
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicStock">
-          <Form.Label>Rate</Form.Label>
-          <Form.Control
-            name="rating"
-            value={form.rating > 0 ? form.rating : 0}
-            onChange={handleChange}
-            type="number"
-            placeholder="Rate..."
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicimages">
