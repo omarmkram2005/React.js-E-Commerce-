@@ -1,5 +1,5 @@
 export const baseURL =
-  "https://e-commerce-backend-production-e309.up.railway.app/api";
+  "https://e-commerce-backend-production-1346.up.railway.app/api";
 
 export const REGISTER = "register";
 export const LOGIN = "login";
