@@ -170,7 +170,14 @@ export default function Product() {
       className="  p-2 border col-2 position-relative">
       <div className="d-flex justify-content-between align-items-center w-100">
         <div className="  d-flex justify-content-start align-items-center gap-2 ">
-          <img width={"80px"} src={image.image} alt="err" />
+          <img
+            width={"80px"}
+            src={
+              "https://e-commerce-backend-production-1346.up.railway.app" +
+              image.image
+            }
+            alt="err"
+          />
         </div>
         <div
           style={{ cursor: "pointer" }}

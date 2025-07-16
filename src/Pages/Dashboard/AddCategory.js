@@ -3,19 +3,22 @@ import { Form } from "react-bootstrap";
 import { Axios } from "../../Api/axios";
 import { Cat } from "../../Api/Api";
 import LoadingSupmit from "../../Components/Loading/Loading";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function AddCategory() {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
-  const nav = useNavigate();
   const focus = useRef(null);
 
   useEffect(() => {
     focus.current.focus();
   }, []);
-
+  function navigateTimeOut() {
+    setTimeout(() => {
+      <NavLink to="/dashboard/users" />;
+    }, 3000);
+  }
   async function HandelSubmit(e) {
     e.preventDefault();
     const form = new FormData();
@@ -23,8 +26,9 @@ export default function AddCategory() {
     form.append("image", image);
     try {
       Axios.post(`${Cat}/add`, form);
-      nav("/dashboard/categories");
+
       setLoading(true);
+      navigateTimeOut();
     } catch (err) {
       console.log(err);
     } finally {
