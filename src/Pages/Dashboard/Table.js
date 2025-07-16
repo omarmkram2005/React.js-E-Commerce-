@@ -68,7 +68,14 @@ export default function TapleShow(props) {
           ) : currentUser && currentUser.name === item[item2.key] ? (
             item[item2.key] + " (You)"
           ) : item2.key === "image" ? (
-            <img style={{ width: "200px" }} alt="err" src={item[item2.key]} />
+            <img
+              style={{ width: "200px" }}
+              alt="err"
+              src={
+                "https://e-commerce-backend-production-e309.up.railway.app/" +
+                item[item2.key]
+              }
+            />
           ) : item2.key === "rating" ? (
             <div>{item[item2.key]}</div>
           ) : item2.key === "images" ? (
