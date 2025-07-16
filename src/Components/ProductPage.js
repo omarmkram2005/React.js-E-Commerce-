@@ -46,8 +46,12 @@ export default function ProductPage() {
   };
   const images = productImages?.map((image, key) => {
     return {
-      original: image.image,
-      thumbnail: image.image,
+      original:
+        "https://e-commerce-backend-production-1346.up.railway.app" +
+        image.image,
+      thumbnail:
+        "https://e-commerce-backend-production-1346.up.railway.app" +
+        image.image,
       originalClass: "custom-image-style",
     };
   });

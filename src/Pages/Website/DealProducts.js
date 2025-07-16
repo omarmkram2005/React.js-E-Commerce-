@@ -92,7 +92,14 @@ export default function DealProducts(props) {
     <div className="Product-card ">
       <NavLink to={`/product/${props.id}`} className="product-img">
         {props.discount && <span className="sail">SALE</span>}
-        <img loading="lazy" src={props.img} alt="product" />
+        <img
+          loading="lazy"
+          src={
+            "https://e-commerce-backend-production-1346.up.railway.app" +
+            props.img
+          }
+          alt="product"
+        />
       </NavLink>
       <div className="card-body">
         <h1 className="title text-truncate">

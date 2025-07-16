@@ -84,7 +84,10 @@ export default function TapleShow(props) {
                 <img
                   // style={{ maxWidth: "140px", minWidth: "45px" }}
                   key={key}
-                  src={image.image}
+                  src={
+                    "https://e-commerce-backend-production-1346.up.railway.app" +
+                    image.image
+                  }
                   alt="err"
                   className="gallery-image"
                 />
