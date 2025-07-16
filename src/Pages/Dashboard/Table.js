@@ -72,7 +72,7 @@ export default function TapleShow(props) {
               style={{ width: "200px" }}
               alt="err"
               src={
-                "https://e-commerce-backend-production-e309.up.railway.app" +
+                "https://e-commerce-backend-production-1346.up.railway.app" +
                 item[item2.key]
               }
             />
