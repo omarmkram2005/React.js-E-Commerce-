@@ -14,7 +14,6 @@ export default function AddProduct() {
     discount: "",
     About: "",
     stock: "",
-    rating: "",
   });
 
   const dummyForm = {
@@ -25,7 +24,6 @@ export default function AddProduct() {
     discount: 0,
     About: "dummy",
     stock: 5,
-    rating: 2,
   };
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -247,17 +245,7 @@ export default function AddProduct() {
             placeholder="Stock..."
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicStock">
-          <Form.Label>Rate</Form.Label>
-          <Form.Control
-            name="rating"
-            value={form.rating > 0 ? form.rating : 0}
-            onChange={handleChange}
-            type="number"
-            disabled={!sent}
-            placeholder="Rate..."
-          />
-        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicimages">
           <Form.Label>Images</Form.Label>
           <Form.Control
