@@ -16,7 +16,14 @@ export default function Cart() {
         style={{ borderBottom: "1px solid gray" }}
         className="d-flex flex-wrap my-2 py-1 ">
         <div className="col-4">
-          <img width={"150px"} alt="" src={product.images[0].image} />
+          <img
+            width={"150px"}
+            alt=""
+            src={
+              "https://e-commerce-backend-production-1346.up.railway.app" +
+              product.images[0].image
+            }
+          />
           {}
         </div>
         <div className="col-7 d-flex align-items-start">
