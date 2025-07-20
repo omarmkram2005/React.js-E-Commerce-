@@ -90,7 +90,7 @@ export default function Login() {
             </div>
             <a
               style={{ width: "100px", display: "block" }}
-              href="https://e-commerce-backend-production-e309.up.railway.app/login-google">
+              href="/auth/google/callback">
               <div className="mt-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
