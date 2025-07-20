@@ -90,7 +90,7 @@ export default function Login() {
             </div>
             <a
               style={{ width: "100px", display: "block" }}
-              href="/auth/google/callback">
+              href="https://react-js-e-commercee.netlify.app/login-google">
               <div className="mt-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
