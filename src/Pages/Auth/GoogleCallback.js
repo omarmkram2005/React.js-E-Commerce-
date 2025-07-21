@@ -16,6 +16,7 @@ export default function GoogleCallback() {
         );
         const token = res.data.access_token;
         cookie.set("e-commerce", token);
+        window.location.pathname = "/";
       } catch (err) {
         console.log(err);
       }
