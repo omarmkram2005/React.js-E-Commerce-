@@ -7,6 +7,7 @@ import Cookie from "cookie-universal";
 export default function GoogleCallback() {
   const location = useLocation();
   const cookie = Cookie();
+  console.log(location.search);
   useEffect(() => {
     async function GoogleCall() {
       try {
